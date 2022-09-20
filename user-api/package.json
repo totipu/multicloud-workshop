@@ -7,11 +7,14 @@
         "morgan": "^1.10.0",
         "pg": "^8.7.1",
         "postgres": "^1.0.2",
-        "typeorm": "^0.2.38"
+        "typeorm": "^0.2.38",
+        "swagger-autogen": "^2.21.10",
+        "swagger-ui-express": "^4.1.4"
     },
     "scripts": {
         "test": "jest -i",
-        "start": "node src/index.js"
+        "start": "node src/index.js",
+        "swagger-autogen": "node swagger.js"
     },
     "devDependencies": {
         "@jest-mock/express": "^1.4.5",
