@@ -2,6 +2,8 @@
 
 In order to run the API you'll need to set the following environment variables.
 
+Swagger documentation is located at: /docs
+
 ## Environment variables
 
 | Variable name | Value |
