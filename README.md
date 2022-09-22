@@ -22,7 +22,8 @@ Deploy nginx server and User API nodejs application.
 
 ### Microsoft Azure App Services
 
-TBD
+1. Configure env variables for App Service
+2. User VS Code to deploy the application
 
 ## Part 3: Managed Databases
 
