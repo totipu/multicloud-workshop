@@ -1,0 +1,25 @@
+{
+    "name": "typeorm-javascript-student-app",
+    "version": "0.0.1",
+    "description": "Awesome project developed with TypeORM.",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongodb": "^3.7.3",
+        "morgan": "^1.10.0",
+        "pg": "^8.7.1",
+        "postgres": "^1.0.2",
+        "swagger-autogen": "^2.21.10",
+        "swagger-ui-express": "^4.1.4",
+        "typeorm": "^0.2.38"
+    },
+    "scripts": {
+        "test": "jest -i",
+        "start": "node src/index.js",
+        "swagger-autogen": "node swagger.js"
+    },
+    "devDependencies": {
+        "@jest-mock/express": "^1.4.5",
+        "jest": "^27.3.1",
+        "sqlite3": "^5.0.2"
+    }
+}
