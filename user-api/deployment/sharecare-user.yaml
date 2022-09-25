@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sharecare-user-pod
-        image: totipuacr.azurecr.io/sharecare-user:0.1
+        image: 996886234804.dkr.ecr.eu-central-1.amazonaws.com/sharecare/user:1.0
         env:
         - name: DATABASE_HOST
           value: totipulocationsvcdb.postgres.database.azure.com
@@ -40,27 +40,27 @@ kind: Service
 metadata:
   name: sharecare-user-svc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 3000
   selector:
     app: sharecare-user
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sharecare-user-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    # nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - host: sharecare.tipuric.com
-    http:
-      paths:
-      - backend:
-          serviceName: sharecare-user-svc
-          servicePort: 80
-        path: /users
+    - host: multicloud.tipuric.com
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: sharecare-user-svc
+                port:
+                  number: 80
+            path: /users
