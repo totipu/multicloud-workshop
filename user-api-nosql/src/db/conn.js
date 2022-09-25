@@ -3,11 +3,13 @@ const { ServerApiVersion } = require("mongodb/lib/core");
 const connectionString = process.env.MONGODB_URI;
 const databaseName = process.env.DATABASE_NAME;
 
-const client = new MongoClient(connectionString, {
+const client = new MongoClient(connectionString + "&retryWrites=false", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1
+//   serverApi: ServerApiVersion.v1
 });
+
+// const client = new MongoClient(connectionString);
 
 let dbConnection;
 

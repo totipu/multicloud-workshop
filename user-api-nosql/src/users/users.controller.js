@@ -25,8 +25,9 @@ function UserController () {
         dbConnect
             .collection('Users')
             .insertOne(userDocument, function (err, result) {
-                if (err) {
+                if (err) {                    
                     res.status(500).send('Error inserting user!');
+                    console.log(err);
                 } else {
                     console.log(`Added a new User with id ${result.insertedId}`);
                     res.status(200).json(result.ops[0]);
